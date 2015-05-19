@@ -1,4 +1,4 @@
-var myDi = require('./depfile');
+var myDi = require('./lib/depfile');
 
 var container = new myDi.Container();
 
