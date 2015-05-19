@@ -14,23 +14,10 @@ gulp.task('default', function() {
 
 // Clean them generated files.
 gulp.task('clean', function () {
-    return builder.del(['lib', 'test/lib']);
-});
-
-// Compile (transpile) ES6 to JS.
-gulp.task('compile', ['clean'], function () {
-    return builder
-        .transpile('src', 'lib')
-        .copy('src', 'lib')
-        .transpile('test/src', 'test/lib')
-        .copy('test/src', 'test/lib')
-        .then(function() {
-            console.log('Finished compiling.');
-        });
 });
 
 // Test
-gulp.task('test', ['compile'], function () {
+gulp.task('test', [], function () {
     console.log('start test');
     //gulp.src('test/lib/**/test*.js', {read: false})
     //    .pipe(mocha({reporter: 'spec', recursive: true}));
