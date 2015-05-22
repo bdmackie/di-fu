@@ -71,7 +71,7 @@ describe('intercept', function() {
         // act + assert
         di.bind('blah').file('./sub/dummy-foo', 'service');
         expect(mf.has('./sub/dummy-foo')).to.be.false;
-        di.intercept('./dummy-service', 'blah')
+        di.intercept('./dummy-service', 'blah');
         expect(mf.has('./sub/dummy-foo')).to.be.false;
         expect(mf.has('./dummy-service')).to.be.false;
 
@@ -79,7 +79,6 @@ describe('intercept', function() {
         var svc = di.require('./dummy-service');
         expect(mf.has('./sub/dummy-foo')).to.be.true;
         expect(mf.has('./dummy-service')).to.be.false;
-        console.log(JSON.stringify(svc));        
         expect(svc).to.be.ok;
         expect(svc.foo()).to.equal('bar');
     });

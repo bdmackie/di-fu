@@ -22,6 +22,25 @@ describe('bind-file', function() {
         expect(mf.has('./dummy-service')).to.be.true;        
         expect(svc).to.be.ok;
         expect(svc.test()).to.equal(123);
+    });
+
+    it('should load dummy service with default key.', function() {
+        // arrange
+        var di = th.reloadDi();
+        expect(di).to.be.ok;
+        expect(di.has('dummy-service')).to.be.false;
+        expect(mf.has('./dummy-service')).to.be.false;
+
+        // act + assert
+        di.bind().file('./dummy-service');
+        expect(di.has('dummy-service')).to.be.true;
+        expect(mf.has('./dummy-service')).to.be.false;
+
+        // act + assert
+        var svc = di.get('dummy-service').service;
+        expect(mf.has('./dummy-service')).to.be.true;        
+        expect(svc).to.be.ok;
+        expect(svc.test()).to.equal(123);
         var x = mf.find('./dummy-service');
     });
 
