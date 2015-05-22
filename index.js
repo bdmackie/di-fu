@@ -12,6 +12,10 @@ di.delete = function(key) {
 	di.container.delete(key);
 	return di;
 };
-di.options = di.container.options;
+di.configure = function(options) {
+	di.container.configure(options);
+	return di;
+};
+di.intercept = di.container.intercept;
 
 module.exports = di;

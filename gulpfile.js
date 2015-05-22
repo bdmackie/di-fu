@@ -21,7 +21,7 @@ gulp.task('test', [], function () {
     console.log('start test');
     //gulp.src('test/lib/**/test*.js', {read: false})
     //    .pipe(mocha({reporter: 'spec', recursive: true}));
-    gulp.src('test/test*.js', {read: false})
+    gulp.src('test/**/test*.js', {read: false})
         .pipe(mocha({reporter: 'spec', recursive: true}));
 });
 
