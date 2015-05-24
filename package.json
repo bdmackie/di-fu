@@ -1,6 +1,6 @@
 {
   "name": "di-fu",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "A simple dependency injector",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bdmackie/promise-fu"
+    "url": "https://github.com/bdmackie/di-fu"
   },
   "devDependencies": {
     "babel": "^4.3.0",
