@@ -32,12 +32,7 @@ function reloadDiVanilla() {
 module.exports.reloadDiVanilla = reloadDiVanilla;
 
 function reloadDi() {
-    return reloadDiVanilla()
-        .configure({
-            resolver: require.resolve, 
-            basedir: __dirname,
-            configfile: false
-        });
+    return reloadDiVanilla().configure();
 }
 module.exports.reloadDi = reloadDi;	
 

@@ -8,25 +8,21 @@ describe('difile', function() {
     it('should find difile in root.', function() {
         th.deleteDi();
 
-        var di = require('../index')
-            .configure({resolver:require.resolve, 
-                basedir: __dirname});
+        var di = require('../index').configure();
 
         expect(di).to.be.ok;
         expect(di.has('hello')).to.be.true;
         expect(mf.has('./dummy-hello')).to.be.false;
 
         var svc = di('hello').service;
-        expect(mf.has('./dummy-hello')).to.be.true;  
+        expect(mf.has('./dummy-hello')).to.be.true;
         expect(svc.hello()).to.equal('world');
     });
 
     it('should extend difile in root.', function() {
         th.deleteDi();
 
-        var di = require('../index')
-            .configure({resolver:require.resolve, 
-                basedir: __dirname});
+        var di = require('../index').configure();
 
         expect(di).to.be.ok;
         expect(di.has('hello')).to.be.true;

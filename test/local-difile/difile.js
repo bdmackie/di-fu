@@ -1,4 +1,4 @@
-var di = require('../../index').configure({resolver: require.resolve, basedir: __dirname});
+var di = require('../../index').configure();
 
 di.bind().file('../dummy-service');
 di.bind().path('../sub/dummy-*');

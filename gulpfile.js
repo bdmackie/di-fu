@@ -25,6 +25,15 @@ gulp.task('test', [], function () {
         .pipe(mocha({reporter: 'spec', recursive: true}));
 });
 
+// Test
+gulp.task('test2', [], function () {
+    console.log('start test');
+    //gulp.src('test/lib/**/test*.js', {read: false})
+    //    .pipe(mocha({reporter: 'spec', recursive: true}));
+    gulp.src('test/**/test-difile.js', {read: false})
+        .pipe(mocha({reporter: 'spec', recursive: true}));
+});
+
 gulp.task('commit-version', function () {
     var m = options.m ? options.m : 'bumped version';
     return gulp.src('.')

@@ -8,9 +8,7 @@ describe('local-difile', function() {
     it('should find difile in root.', function() {
         th.deleteDi();
 
-        var di = require('../../index')
-            .configure({resolver:require.resolve, 
-                basedir: __dirname});
+        var di = require('../../index').configure();
 
         // assert
         expect(di).to.be.ok;
