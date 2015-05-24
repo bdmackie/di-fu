@@ -1,4 +1,4 @@
-var di = require('../../index').configure({resolver: require.resolve, basedir: __dirname});
+var di = require('../../index').configure();
 
 function ParentService() {
 	var _this = {};
