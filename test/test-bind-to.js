@@ -6,6 +6,7 @@ describe('bind-to', function() {
    it('should set and get a basic object component.', function() {
         // arrange
         var di = th.reloadDiVanilla();
+        expect(di.has('hello')).to.be.false;
         
         expect(di).to.be.ok;
         expect(di.has('basic-object')).to.be.false;
@@ -41,6 +42,7 @@ describe('bind-to', function() {
         // arrange
         var di = th.reloadDiVanilla();
         expect(di).to.be.ok;
+        expect(di.has('hello')).to.be.false;
         expect(di.has('basic-object')).to.be.false;
 
         // act
@@ -70,6 +72,7 @@ describe('bind-to', function() {
         // arrange
         var di = th.reloadDiVanilla();
         expect(di).to.be.ok;
+        expect(di.has('hello')).to.be.false;
         expect(di.has('dummy-service')).to.be.false;
 
         // act

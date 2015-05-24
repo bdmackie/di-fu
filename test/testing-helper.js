@@ -27,12 +27,13 @@ exports.deleteDi = deleteDi;
 
 function reloadDiVanilla() {
 	clearTestModules();
-    return mf.reload('../index');
+    return mf.reload('../index').container({configfile:false});
 }
 module.exports.reloadDiVanilla = reloadDiVanilla;
 
 function reloadDi() {
-    return reloadDiVanilla().configure();
+    clearTestModules();
+    return mf.reload('../index').container();
 }
 module.exports.reloadDi = reloadDi;	
 

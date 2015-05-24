@@ -8,7 +8,7 @@ describe('local-difile', function() {
     it('should find difile in root.', function() {
         th.deleteDi();
 
-        var di = require('../../index').configure();
+        var di = require('../../index').container();
 
         // assert
         expect(di).to.be.ok;
