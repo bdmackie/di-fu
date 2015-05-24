@@ -1,7 +1,8 @@
-var myDi = require('./lib/depfile');
+// Create container singleton.
+var container = new require('./lib/container').Container();
 
-var container = new myDi.Container();
-
+// Create wrapper that defaults to require function
+// and omits configure method.
 var di = container.require;
 di.container = container;
 di.get = di.container.get;
@@ -12,10 +13,11 @@ di.delete = function(key) {
 	di.container.delete(key);
 	return di;
 };
-di.configure = function(options) {
-	di.container.configure(options);
-	return di;
-};
 di.intercept = di.container.intercept;
 
-module.exports = di;
+// Expose sole container method that returns
+// a configured container.
+module.exports.container = function(options) {
+	di.container.configure(options);
+	return di;
+}
