@@ -8,7 +8,8 @@ A small dependency injection framework.
 - Binds direct to objects, file modules and a 'glob' path returning several file modules.
 - Loads configuration from a 'difile.js' module in the current folder or higher. Bind modules in this file and they will be available everywhere you require di-fu.
 - Dedicated 'get' function or pass through 'resolve' when a component isn't registered. the default function will act as 'resolve' and if the component is not registered with the container it will be passed on to node's require method. If .get is explicitly called, it will raise an error if the component is not registered.
-- Intercept file resolutions (e.g. for mocking).
+
+Intercept file resolutions (e.g. for mocking).
 - Detects circular dependencies.
 
 ## Installation
