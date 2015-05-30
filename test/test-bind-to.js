@@ -9,33 +9,28 @@ describe('bind-to', function() {
         expect(di.has('hello')).to.be.false;
         
         expect(di).to.be.ok;
-        expect(di.has('basic-object')).to.be.false;
+        expect(di.has('foo')).to.be.false;
 
         // act
-        //di.set('basic-object', {
-        //    test: 123
-        //});
-        di.bind('basic-object').to({
+        di.bind('foo').to({
             test: 123
         });
 
         // assert
-        expect(di.has('basic-object')).to.be.true;
-        var component = di.get('basic-object');
+        expect(di.has('foo')).to.be.true;
+        var component = di('foo');
         expect(component).to.be.ok;
         expect(component.test).to.equal(123);
 
         // act
-        di.unbind('basic-object');
+        di.unbind('foo');
 
         // assert
-        expect(di.has('basic-object')).to.be.false;
+        expect(di.has('foo')).to.be.false;
         var badFn = function() {
-            component = di.get('basic-object');
+            component = di('foo');
         };
         expect(badFn).to.throw(Error);
-        //component = di.get('basic-object');
-        //expect(component).to.be.undefined;
     });
 
     it('should throw when adding an already existing component.', function() {
@@ -43,25 +38,19 @@ describe('bind-to', function() {
         var di = th.reloadDiVanilla();
         expect(di).to.be.ok;
         expect(di.has('hello')).to.be.false;
-        expect(di.has('basic-object')).to.be.false;
+        expect(di.has('foo')).to.be.false;
 
         // act
-        //di.set('basic-object', {
-        //    test: 123
-        //});
-        di.bind('basic-object').to({
+        di.bind('foo').to({
             test: 123
         });
 
         // assert
-        expect(di.has('basic-object')).to.be.true;
+        expect(di.has('foo')).to.be.true;
 
         // act + assert
         var badFn = function() {
-            //di.set('basic-object', {
-            //    test: 345
-            //});
-            di.bind('basic-object').to({
+            di.bind('foo').to({
                 test: 345
             });
         };
@@ -83,5 +72,36 @@ describe('bind-to', function() {
         var svc = di('dummy-service').service;
         expect(svc).to.be.ok;
         expect(svc.test()).to.equal(123);
+    });
+
+    it('should rebind an existing component.', function() {
+        // arrange
+        var di = th.reloadDiVanilla();
+        expect(di.has('hello')).to.be.false;
+        
+        expect(di).to.be.ok;
+        expect(di.has('foo')).to.be.false;
+
+        // act
+        di.bind('foo').to({
+            test: 123
+        });
+
+        // assert
+        expect(di.has('foo')).to.be.true;
+        var component = di('foo');
+        expect(component).to.be.ok;
+        expect(component.test).to.equal(123);
+
+        // act
+        di.rebind('foo').to({
+            test: 456
+        })
+
+        // assert
+        expect(di.has('foo')).to.be.tue;
+        component = di('foo');
+        expect(component).to.be.ok;
+        expect(component.test).to.equal(456);
     });
 });
