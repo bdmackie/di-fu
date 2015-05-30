@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var builder = require('build-fu').Builder;
 var mocha = require('gulp-mocha');
 var Promise = require('bluebird');
 var git = require('gulp-git');

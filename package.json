@@ -1,6 +1,6 @@
 {
   "name": "di-fu",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "A simple dependency injector",
   "main": "index.js",
   "scripts": {
@@ -15,42 +15,23 @@
     "url": "https://github.com/bdmackie/di-fu"
   },
   "devDependencies": {
-    "babel": "^4.3.0",
-    "build-fu": "^0.1.3",
     "chai": "^2.2.0",
     "del": "^1.1.1",
     "gulp": "^3.8.11",
-    "gulp-babel": "^4.0.0",
-    "gulp-buffer": "0.0.2",
     "gulp-bump": "^0.3.0",
-    "gulp-concat": "^2.5.2",
-    "gulp-ext-replace": "^0.1.0",
     "gulp-git": "^1.2.3",
     "gulp-mocha": "^2.0.0",
-    "gulp-remove-lines": "^0.1.0",
-    "gulp-rename": "^1.2.0",
-    "gulp-sourcemaps": "^1.3.0",
-    "gulp-streamify": "0.0.5",
-    "gulp-traceur": "^0.17.0",
     "mocha": "^2.2.1",
     "node-inspector": "^0.10.1",
-    "run-sequence": "^1.1.0",
-    "source-map-support": "^0.2.9",
-    "traceur": "0.0.84",
-    "when": "^3.7.2"
+    "run-sequence": "^1.1.0"
   },
   "dependencies": {
-    "callsite": "^1.0.0",
     "debug": "^2.2.0",
     "glob": "^5.0.3",
-    "harmony-collections": "^0.3.8",
     "harmony-enumerables": "^0.1.3",
     "minimatch": "^2.0.8",
-    "module-fu": "file:../../../../var/folders/g2/qntgvgrs0z99bzwwqbdhj5_40000gp/T/npm-12668-139f0d8a/git-cache-4f5122182f51/5b4a5fb3e3df9facd058d66a4a27ed9d4c838a78",
-    "q": "^1.2.0",
+    "module-fu": "^0.1.9",
     "stack-trace": "0.0.9",
-    "string": "^3.0.0",
-    "traceback": "^0.3.1",
     "underscore": "^1.8.2",
     "underscore.string": "^3.0.3",
     "verror": "^1.6.0"
