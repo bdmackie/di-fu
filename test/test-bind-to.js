@@ -26,7 +26,7 @@ describe('bind-to', function() {
         expect(component.test).to.equal(123);
 
         // act
-        di.delete('basic-object');
+        di.unbind('basic-object');
 
         // assert
         expect(di.has('basic-object')).to.be.false;

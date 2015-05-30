@@ -18,7 +18,7 @@ describe('bind-file', function() {
         expect(mf.has('./dummy-service')).to.be.false;
 
         // act + assert
-        var svc = di.get('dummy-service').service;
+        var svc = di('dummy-service').service;
         expect(mf.has('./dummy-service')).to.be.true;        
         expect(svc).to.be.ok;
         expect(svc.test()).to.equal(123);
@@ -37,7 +37,7 @@ describe('bind-file', function() {
         expect(mf.has('./dummy-service')).to.be.false;
 
         // act + assert
-        var svc = di.get('dummy-service').service;
+        var svc = di('dummy-service').service;
         expect(mf.has('./dummy-service')).to.be.true;        
         expect(svc).to.be.ok;
         expect(svc.test()).to.equal(123);
@@ -57,7 +57,7 @@ describe('bind-file', function() {
         expect(mf.has('./dummy-service')).to.be.false;
 
         // act + assert
-        var svc = di.get('dummy-service');
+        var svc = di('dummy-service');
         expect(mf.has('./dummy-service')).to.be.true;        
         expect(svc).to.be.ok;
         expect(svc.test()).to.equal(123);
@@ -97,7 +97,7 @@ describe('bind-file', function() {
         expect(mf.has('./sub/dummy-foo')).to.be.false;
 
         // act + assert
-        var svc = di.get('x').service;
+        var svc = di('x').service;
         expect(di.has('dummy-foo')).to.be.false;
         expect(di.has('x')).to.be.true;
         expect(mf.has('./sub/dummy-foo')).to.be.true;

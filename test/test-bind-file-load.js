@@ -17,7 +17,7 @@ describe('bind-file-load', function() {
 
         // assert
         expect(di.has('dummy-service')).to.be.true;
-        var svc = di.get('dummy-service').service;
+        var svc = di('dummy-service').service;
         expect(svc).to.be.ok;
         expect(svc.test()).to.equal(123);
     });
@@ -35,7 +35,7 @@ describe('bind-file-load', function() {
 
         // assert
         expect(di.has('dummy-service')).to.be.true;
-        var svc = di.get('dummy-service');
+        var svc = di('dummy-service');
         expect(svc).to.be.ok;
         expect(svc.test()).to.equal(123);
     });
@@ -53,7 +53,7 @@ describe('bind-file-load', function() {
 
         // assert
         expect(di.has('dummy-foo')).to.be.true;
-        var svc = di.get('dummy-foo').service;
+        var svc = di('dummy-foo').service;
         expect(svc).to.be.ok;
         expect(svc.foo()).to.equal('bar');
     });
@@ -73,7 +73,7 @@ describe('bind-file-load', function() {
         // assert
         expect(di.has('dummy-foo')).to.be.false;
         expect(di.has('x')).to.be.true;
-        var svc = di.get('x').service;
+        var svc = di('x').service;
         expect(svc).to.be.ok;
         expect(svc.foo()).to.equal('bar');
     });
