@@ -8,6 +8,7 @@ di.container = container;
 di.get = di.container.get;
 di.invoke = di.container.invoke;
 di.create = di.container.create;
+di.require = di.container.require;
 di.has = di.container.has;
 di.bind = di.container.bind;
 di.rebind = di.container.rebind;
