@@ -8,7 +8,7 @@ describe('circular', function() {
     it('should detect circular dependencies', function() {
         th.deleteDi();
 
-        var di = require('../../index').container();
+        var di = require('../../index')();
 
         var svc;        
         var badFn = function() {

@@ -8,7 +8,7 @@ describe('difile', function() {
     it('should find difile in root.', function() {
         th.deleteDi();
 
-        var di = require('../index').container();
+        var di = require('../index')();
 
         expect(di).to.be.ok;
         expect(di.has('hello')).to.be.true;
@@ -22,7 +22,7 @@ describe('difile', function() {
     it('should extend difile in root.', function() {
         th.deleteDi();
 
-        var di = require('../index').container();
+        var di = require('../index')();
 
         expect(di).to.be.ok;
         expect(di.has('hello')).to.be.true;

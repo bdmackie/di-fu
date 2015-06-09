@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "gulp test",
-    "debug": "node-debug $(which gulp) test"
+    "debug": "node-debug $(which gulp) test2"
   },
   "author": "Ben Mackie <bdmackie@gmail.com>",
   "copyright": "Ben Mackie 2015",

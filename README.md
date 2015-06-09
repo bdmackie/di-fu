@@ -20,14 +20,14 @@ A small dependency injection framework.
 
 ```javascript
 // in difile.js
-var di = require('di-fu').container();
+var di = require('di-fu')();
 
 di.bind('hello').to({
 	hello: function() { return "hello world"; }
 });
 
 // in module
-var di = require('di-fu').container();
+var di = require('di-fu')();
 
 var hello = di('hello');
 console.log(hello.hello()); // hello world
@@ -37,12 +37,12 @@ console.log(hello.hello()); // hello world
 
 ```javascript
 // in difile.js
-var di = require('di-fu').container();
+var di = require('di-fu')();
 
 di.bind('hello').file('./lib/hello-service', 'service'); // chain .load() after this to load it here.
 
 // in module
-var di = require('di-fu').container();
+var di = require('di-fu')();
 
 var hello = di('hello');
 console.log(hello.hello());
@@ -52,12 +52,12 @@ console.log(hello.hello());
 
 ```javascript
 // in difile.js
-var di = require('di-fu').container();
+var di = require('di-fu')();
 
 di.bind('model:*').path('./model/model-*.js'); // chain .load() after this to load them here.
 
 // in module
-var di = require('di-fu').container();
+var di = require('di-fu')();
 
 var user = di.create('model:user');
 ```
@@ -65,7 +65,7 @@ var user = di.create('model:user');
 ## Example 4 - bind, rebind and unbind
 
 ```javascript
-var di = require('di-fu').container();
+var di = require('di-fu')();
 console.log(di.has('foo')); // false
 
 // A basic bind call to register a component.
@@ -95,7 +95,7 @@ console.log(di.has('foo')); // false
 ## Example 5 - invoking
 
 ```javascript
-var di = require('di-fu').container();
+var di = require('di-fu')();
 console.log(di.has('foo')); // false
 
 // Bind a simple function.
@@ -126,7 +126,7 @@ console.log(bar.hello()); // Hello Bob
 ## Example 5 - require
 
 ```javascript
-var di = require('di-fu').container();
+var di = require('di-fu')();
 
 // Use the require method to get a component if a binding
 // is found but fallback to loading a module if it is not.

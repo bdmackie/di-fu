@@ -29,7 +29,7 @@ gulp.task('test2', [], function () {
     console.log('start test');
     //gulp.src('test/lib/**/test*.js', {read: false})
     //    .pipe(mocha({reporter: 'spec', recursive: true}));
-    gulp.src('test/**/test-difile.js', {read: false})
+    gulp.src('test/**/test-local-setup.js', {read: false})
         .pipe(mocha({reporter: 'spec', recursive: true}));
 });
 
