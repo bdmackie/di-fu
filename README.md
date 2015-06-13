@@ -146,6 +146,31 @@ var svc = di.require('./foo').service;
 console.log(svc.hello()); // hello interceptor
 ```
 
+## Example 6 - pre-configure required modules.
+
+```javascript
+// in difile.js
+var di = require('di-fu')();
+
+// Initialise promises (bluebird).
+var Promise = require('bluebird');
+Promise.longStackTraces();
+di.bind('bluebird').to(Promise);
+
+// Initialise mongoose (MongoDB).
+var mongoose = require('mongoose');
+Promise.promisifyAll(mongoose);
+di.bind('mongoose').to(mongoose);
+
+
+// in some module...
+var di = require('di-fu')();
+
+var Promise = di('bluebird');
+
+// away we go...
+```
+
 ## Tests
 
   npm test

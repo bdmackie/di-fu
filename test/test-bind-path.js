@@ -3,6 +3,9 @@ chai.config.includeStack = true;
 var expect = chai.expect;
 var th = require('./testing-helper');
 var mf = th.moduleFu;
+var _ = require('underscore');
+var s = require('underscore.string');
+var path = require('path');
 
 describe('bind-path', function() {
     it('should load from subdirectory.', function() {
@@ -160,5 +163,34 @@ describe('bind-path', function() {
         var Bar = di.get('sub:dummy-bar').Bar;
         var b = new Bar();
         expect(b.add(1, 2)).to.equal(3);
+    });
+
+    it('should load files with a wildcard and namespace.', function() {
+        // arrange
+        var di = th.reloadDi();
+        expect(di).to.be.ok;
+        expect(di.has('dummy-foo')).to.be.false;
+        expect(di.has('dummy-bar')).to.be.false;
+
+        // act + assert
+        function myWildcard(filename) {
+            return s.capitalize(s.strRight(s.strLeftBack(path.basename(filename), '.'), '-'));
+        }
+        di.bind('model:*').path('./model/dummy-*.js', 
+                null, 
+                { wildcard: myWildcard, importer: '*Model' }
+            );
+        expect(di.has('model:Foo')).to.be.true;
+        expect(di.has('model:Bar')).to.be.true;
+
+        // act + assert
+        var FooModel = di('model:Foo');
+        expect(FooModel).to.be.ok;
+        var foo = new FooModel();
+        expect(foo).to.be.ok;
+        expect(foo.foo()).to.equal('bar');
+        var BarModel = di.get('model:Bar');
+        var bar = new BarModel();
+        expect(bar.add(1, 2)).to.equal(3);
     });
 });
